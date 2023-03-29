@@ -22,6 +22,13 @@ class ContentController extends Controller
         return response()->view('content.index',compact('contents'));
     }
     
+    public function dashboard()
+    {
+        $contents = Content::orderBy('updated_at', 'desc')->get();
+        return view('dashboard', compact('contents'));
+    }
+    
+    
     /**
      * Show the form for creating a new resource.
      *

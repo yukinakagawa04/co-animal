@@ -24,7 +24,7 @@
         </div>
         <!-- 🔽 作成ページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-          <x-nav-link :href="route('content.create')" :active="request()->routeIs('content.create')" class="hidden">
+          <x-nav-link :href="route('content.create')" :active="request()->routeIs('content.create')" class="">
             {{ __('コンテンツを作成する') }}
           </x-nav-link>
         </div>

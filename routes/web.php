@@ -26,8 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::post('content/{content}/favorites', [FavoriteController::class, 'store'])->name('favorites');
     Route::post('content/{content}/unfavorites', [FavoriteController::class, 'destroy'])->name('unfavorites');
     Route::get('/content/mypage', [ContentController::class, 'mydata'])->name('content.mypage');
-    Route::resource('content', ContentController::class);
     Route::post('content/{content_id}/comments', [CommentController::class, 'store'])->name('comment.store');
+    Route::resource('content', ContentController::class);
+    Route::get('/dashboard', [ContentController::class, 'dashboard']);
 });
 
 Route::resource('tweet', TweetController::class);
