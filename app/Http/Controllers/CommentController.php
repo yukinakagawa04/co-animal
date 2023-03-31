@@ -26,12 +26,12 @@ class CommentController extends Controller
         $comment = new Comment();
         $comment->comment = $data['comment'];
         $comment->user_id = $user->id;
-        // $comment->content_id = $data['content_id'];
+        $comment->content_id = $data['content_id'];
         $comment->save();
         
-        // $comment->commentStore($user->id, $data);
-        
-        $comments = Comment::getAllOrderByUpdated_at();
+        $comments = Comment::where('content_id', $data['content_id'])
+                            ->orderBy('created_at', 'desc')
+                            ->get();
         
         return redirect()->back()->with('comments', $comments);
     }

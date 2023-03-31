@@ -47,6 +47,7 @@
               <form class="mb-6" action={{route('comment.store', auth() ->user()->id, $content)}} method="POST" class="mt-8">
                   @csrf
                   <div class="mb-4">
+                    <input type="hidden" name="content_id" value="{{ $content->id }}">
                     <x-input-label for="comment" :value="__('コメント')" />
                       <x-text-input id="comment" class="block mt-1 w-full" type="text" name="comment" :value="old('comment')" required autofocus />
                       <x-input-error :messages="$errors->get('comment')" class="mt-2" />
@@ -60,16 +61,19 @@
             </div>
              
             <!--コメント表示-->
-            @if (session('comments'))
-                @foreach (session('comments') as $comment)
-                    <p>{{ $comment->comment }}</p>
-                    <p>{{ $comment->created_at }}</p>
-                @endforeach
+            @if (isset($comments))
+              @foreach ($comments as $comment)
+                <p>{{ $comment->comment }}</p>
+                <p>{{ $comment->created_at }}</p>
+              @endforeach
             @endif
+            
+           
+       
             
 
             </div>
-            <a href="{{ url()->previous() }}">
+            <a href="{{ route('content.index') }}">
               <x-secondary-button class="ml-3">
                 {{ __('Back') }}
               </x-primary-button>

@@ -29,11 +29,12 @@ Route::middleware('auth')->group(function () {
     // マイページ機能
     Route::get('/content/mypage', [ContentController::class, 'mydata'])->name('content.mypage');
     // コメント機能
-    Route::post('content/{content_id}/comments', [CommentController::class, 'store'])->name('comment.store');
+    Route::post('content/{content_id}', [CommentController::class, 'store'])->name('comment.store');
+    
     // ダッシュボードのコンテンツ一覧
     Route::get('dashboard/content', [DashboardController::class, 'index'])->name('dashboard.content');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
+    Route::get('/content', [ContentController::class, 'index'])->name('content.index');
 
 
 });

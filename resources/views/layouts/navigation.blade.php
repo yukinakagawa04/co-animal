@@ -104,11 +104,16 @@
       </x-responsive-nav-link>
     </div>
     <!-- 🔽 作成ページへのリンクを追加 -->
-    <div class="pt-2 pb-3 space-y-1">
-      <x-responsive-nav-link :href="route('content.create')" :active="request()->routeIs('content.create')" class="">
-        {{ __('コンテンツを作成する') }}
-      </x-responsive-nav-link>
-    </div>
+        @can('business-higher')　{{-- 管理者に表示される --}}
+          @if (Auth::user()->role >= 11 && Auth::user()->role <= 20)
+          <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('content.create')" :active="request()->routeIs('content.create')">
+              {{ __('コンテンツを作成する') }}
+            </x-responsive-nav-link>
+          </div>
+          @endif
+        @endcan
+          
     <!-- 🔽 マイページへのリンクを追加 -->
         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
           <x-nav-link :href="route('content.mypage')" :active="request()->routeIs('content.mypage')" class="hidden">
