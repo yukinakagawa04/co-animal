@@ -68,6 +68,25 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 
+// 管理者
+Route::group(['middleware' => ['auth', 'can:admin-higher']], function () {
+  //ここにルートを記述
+});
+
+// 飼育員
+Route::group(['middleware' => ['auth', 'can:business-higher']], function () {
+  //ここにルートを記述
+});
+
+//一般ユーザー
+Route::group(['middleware' => ['auth', 'can:user-higher']], function () {
+  //ここにルートを記述
+});
+
+
+
+
+
 
 
 Route::middleware('auth')->group(function () {
