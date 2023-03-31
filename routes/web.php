@@ -8,6 +8,7 @@ use App\Http\Controllers\ContentController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Content;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -22,18 +23,25 @@ use App\Http\Controllers\Content;
 */
 
 Route::middleware('auth')->group(function () {
-    // いいねの機能
+    // いいね機能
     Route::post('content/{content}/favorites', [FavoriteController::class, 'store'])->name('favorites');
     Route::post('content/{content}/unfavorites', [FavoriteController::class, 'destroy'])->name('unfavorites');
+    // マイページ機能
     Route::get('/content/mypage', [ContentController::class, 'mydata'])->name('content.mypage');
+    // コメント機能
     Route::post('content/{content_id}/comments', [CommentController::class, 'store'])->name('comment.store');
-    Route::resource('content', ContentController::class);
-    Route::get('/dashboard', [ContentController::class, 'dashboard']);
+    // ダッシュボードのコンテンツ一覧
+    Route::get('dashboard/content', [DashboardController::class, 'index'])->name('dashboard.content');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
+
+
 });
 
 Route::resource('tweet', TweetController::class);
 Route::resource('partner', PartnerController::class);
 Route::resource('content', ContentController::class);
+//Route::resource('dashboard/content', DashboardController::class);
 
 
 
@@ -49,9 +57,16 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
 
 
 
