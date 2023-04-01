@@ -43,7 +43,8 @@
                       </form>
                       @endif
                       <br>
-                      <x-primary-button class="ml-3"><a href="/comment"><p class="mx-auto  justify-center">コメントをみる</a></x-primary-button>
+                      <x-primary-button class="ml-3"><a href="{{ route(/comment}}"><p class="mx-auto  justify-center">コメントをみる</a></x-primary-button>
+
                       <!--コメント入力-->
                       <div class="p-6 bg-white  border-b border-gray-200 ">
                         <form class="mb-6" action={{route('comment.store', auth() ->user()->id, $content)}} method="POST" class="mt-8">
