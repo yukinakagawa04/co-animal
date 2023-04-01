@@ -28,9 +28,14 @@ Route::middleware('auth')->group(function () {
     Route::post('content/{content}/unfavorites', [FavoriteController::class, 'destroy'])->name('unfavorites');
     // マイページ機能
     Route::get('/content/mypage', [ContentController::class, 'mydata'])->name('content.mypage');
+    
+    
+    
     // コメント機能
     Route::post('content/{content_id}', [CommentController::class, 'store'])->name('comment.store');
     //Route::get('content/{content_id}', [CommentController::class, 'store'])->name('content.show');
+    
+    
     // ダッシュボードのコンテンツ一覧
     Route::get('dashboard/content', [DashboardController::class, 'index'])->name('dashboard.content');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
