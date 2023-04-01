@@ -45,7 +45,7 @@
       <div class="hidden sm:flex sm:items-center sm:ml-6">
         <!--🔽 contact-->
       <div class="bg-teal-300">
-        <a href="/contact"><p class="text-center text-sm  text-blue-600">【飼育員の方へ】<br>チャンネル開設のお申し込み</a>
+        <a href="route('contact')"><p class="mx-auto text-base text-blue-600">【飼育員の方へ】<br>チャンネル開設のお申し込み</p></a>
       </div>
         <x-dropdown align="right" width="48">
           <x-slot name="trigger">
