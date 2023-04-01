@@ -51,9 +51,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/service', function () {
     return view('service');
-});
+    })->name('service');
 
 Route::get('/contact', function () {
     return view('contact');
