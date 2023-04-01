@@ -42,10 +42,15 @@
                         </x-primary-button>
                       </form>
                       @endif
+                      
                       <br>
-                      <x-primary-button class="ml-3">
+                      
+                      <!--コメント一覧に遷移する-->
+                        <x-secondary-button class="ml-3">
+                          <a href="{{ route('comment') }}"><p class="mx-auto text-base">コメント</p></a>
+                        </x-secondary-button>
                        
-                      </x-primary-button>
+                      
                      
                       <!--コメント入力-->
                       <div class="p-6 bg-white  border-b border-gray-200 ">
@@ -71,7 +76,7 @@
             <a href="{{ route('content.index') }}">
               <x-secondary-button class="ml-3">
                 {{ __('戻る') }}
-              </x-primary-button>
+              </x-secondary-button>
             </a>
           </div>
         </div>
