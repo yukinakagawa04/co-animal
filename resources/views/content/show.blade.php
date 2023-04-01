@@ -42,40 +42,32 @@
                         </x-primary-button>
                       </form>
                       @endif
-            <!--コメント入力-->
-            <div class="p-6 bg-white  border-b border-gray-200 ">
-              <form class="mb-6" action={{route('comment.store', auth() ->user()->id, $content)}} method="POST" class="mt-8">
-                  @csrf
-                  <div class="mb-4">
-                    <input type="hidden" name="content_id" value="{{ $content->id }}">
-                    <x-input-label for="comment" :value="__('コメント')" />
-                      <x-text-input id="comment" class="block mt-1 w-full" type="text" name="comment" :value="old('comment')" required autofocus />
-                      <x-input-error :messages="$errors->get('comment')" class="mt-2" />
-                  </div>
-                  <div class="flex items-center justify-end mt-4">
-                      <x-primary-button class="ml-3">
-                        {{ __('コメント') }}
-                      </x-primary-button>
-                  </div>
-              </form>
-            </div>
-             
-            <!--コメント表示-->
-            @if (isset($comments))
-              @foreach ($comments as $comment)
-                <p>{{ $comment->comment }}</p>
-                <p>{{ $comment->created_at }}</p>
-              @endforeach
-            @endif
+                      <br>
+                      <x-primary-button class="ml-3"><a href="/comment"><p class="mx-auto  justify-center">コメントをみる</a></x-primary-button>
+                      <!--コメント入力-->
+                      <div class="p-6 bg-white  border-b border-gray-200 ">
+                        <form class="mb-6" action={{route('comment.store', auth() ->user()->id, $content)}} method="POST" class="mt-8">
+                            @csrf
+                            <div class="mb-4">
+                              <input type="hidden" name="content_id" value="{{ $content->id }}">
+                              <x-input-label for="comment" :value="__('コメント')" />
+                                <x-text-input id="comment" class="block mt-1 w-full" type="text" name="comment" :value="old('comment')" required autofocus />
+                                <x-input-error :messages="$errors->get('comment')" class="mt-2" />
+                            </div>
+                            <div class="flex items-center justify-end mt-4">
+                                <x-primary-button class="ml-3">
+                                  {{ __('投稿する') }}
+                                </x-primary-button>
+                            </div>
+                        </form>
+                      </div>
             
-           
-       
-            
+          
 
             </div>
             <a href="{{ route('content.index') }}">
               <x-secondary-button class="ml-3">
-                {{ __('Back') }}
+                {{ __('戻る') }}
               </x-primary-button>
             </a>
           </div>

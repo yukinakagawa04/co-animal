@@ -36,7 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/content', [ContentController::class, 'index'])->name('content.index');
 
-
+    Route::get('comment',[CommentController::class,'store'])->name('test');
+    Route::get('/content', [ContentController::class, 'index'])->name('test');
 });
 
 Route::resource('tweet', TweetController::class);
@@ -58,6 +59,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/comment', function () {
+    return view('comment');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
