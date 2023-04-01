@@ -30,11 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/content/mypage', [ContentController::class, 'mydata'])->name('content.mypage');
     // コメント機能
     Route::post('content/{content_id}', [CommentController::class, 'store'])->name('comment.store');
-    
+    //Route::get('content/{content_id}', [CommentController::class, 'store'])->name('content.show');
     // ダッシュボードのコンテンツ一覧
     Route::get('dashboard/content', [DashboardController::class, 'index'])->name('dashboard.content');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/content', [ContentController::class, 'index'])->name('content.index');
+    
+    
+    
 
 
 });
@@ -42,6 +44,7 @@ Route::middleware('auth')->group(function () {
 Route::resource('tweet', TweetController::class);
 Route::resource('partner', PartnerController::class);
 Route::resource('content', ContentController::class);
+
 //Route::resource('dashboard/content', DashboardController::class);
 
 

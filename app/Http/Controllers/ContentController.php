@@ -98,7 +98,6 @@ class ContentController extends Controller
     public function show($id)
     {
         $content = Content::find($id);
-        
         return response()->view('content.show', compact('content'));
     }
 

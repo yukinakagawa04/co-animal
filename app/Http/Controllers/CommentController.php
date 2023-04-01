@@ -10,11 +10,12 @@ use Auth;
 
 class CommentController extends Controller
 {
+    
     public function store(Request $request)
     {
         $user = auth()->user();
         $data = $request->all();
-        
+    
         $validator = Validator::make($data, [
             'comment' => 'required|max:191',
         ]);
@@ -33,7 +34,7 @@ class CommentController extends Controller
                             ->orderBy('created_at', 'desc')
                             ->get();
         
-        return redirect()->back()->with('comments', $comments);
+        return view('content.show', ['comments' => $comments]);
     }
     
     

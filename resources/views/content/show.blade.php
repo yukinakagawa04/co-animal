@@ -44,7 +44,7 @@
                       @endif
             <!--コメント入力-->
             <div class="p-6 bg-white  border-b border-gray-200 ">
-              <form class="mb-6" action={{route('comment.store', auth() ->user()->id, $content)}} method="POST" class="mt-8">
+              <form class="mb-6" action={{route('comment.store', auth() ->user()->id)}} method="PUT" class="mt-8">
                   @csrf
                   <div class="mb-4">
                     <input type="hidden" name="content_id" value="{{ $content->id }}">
@@ -56,21 +56,20 @@
                       <x-primary-button class="ml-3">
                         {{ __('コメント') }}
                       </x-primary-button>
+                   
                   </div>
               </form>
             </div>
              
             <!--コメント表示-->
-            @if (isset($comments))
-              @foreach ($comments as $comment)
-                <p>{{ $comment->comment }}</p>
-                <p>{{ $comment->created_at }}</p>
-              @endforeach
+            @if (isset($comments) && count($comments) > 0)
+                @foreach ($comments->where('content_id', $content_id) as $comment)
+                    <p>{{ $comment->comment }}</p>
+                    <p>{{ $comment->created_at }}</p>
+                @endforeach
+            @else
+                <p>No comments yet.</p>
             @endif
-            
-           
-       
-            
 
             </div>
             <a href="{{ route('content.index') }}">
