@@ -34,7 +34,7 @@
                 </div>
                 
                 <div>
-                    <div class="bg-teal-300">
+                    <div>
                         <a href="{{ route('service') }}"><img src="{{ asset('images/banner01.png') }}" alt="" class="mx-auto"></a>
                     </div>
                 </div>
