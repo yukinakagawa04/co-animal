@@ -34,7 +34,9 @@
                 </div>
                 
                 <div>
-                    <a href="/service"><img src="{{ asset('images/banner01.png') }}" alt="" class="mx-auto"></a>
+                    <div class="bg-teal-300">
+                        <a href="{{ route('service') }}"><img src="{{ asset('images/banner01.png') }}" alt="" class="mx-auto"></a>
+                    </div>
                 </div>
             </div>
         </x-app-layout>
