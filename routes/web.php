@@ -61,12 +61,7 @@ Route::get('/contact', function () {
 
 Route::get('/comment', function () {
     return view('comment');
-});
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
+    })->name('comment');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
