@@ -57,7 +57,7 @@ Route::get('/service', function () {
 
 Route::get('/contact', function () {
     return view('contact');
-});
+    })->name('contact');
 
 Route::get('/comment', function () {
     return view('comment');
