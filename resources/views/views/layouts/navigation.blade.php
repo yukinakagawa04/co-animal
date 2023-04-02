@@ -107,7 +107,7 @@
     <div class="pt-4 pb-1 border-t border-gray-200 ">
       <!--🔽 contact-->
       <div>
-        <a href="/contact"><p class="mx-auto">【飼育員の方へ】<br>チャンネル開設のお申し込み</a>
+        <a href="/contact" class="inline-block h-10 w-56 text-center font-semibold text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-50 bg-teal-400 text-white rounded-sm py-2">{{ __('飼育員の方へ') }}<br>{{ __('チャンネル開設のお申し込み') }}</a>
       </div>
       <div class="px-4">
         <div class="font-medium text-base text-gray-800 ">{{ Auth::user()->name }}</div>

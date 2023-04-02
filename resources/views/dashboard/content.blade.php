@@ -1,17 +1,16 @@
-            @foreach ($contents as $content)
-                <tr class="hover:bg-gray-lighter">
-                    <td class="py-4 px-6 border-b border-gray-light dark:border-gray-600">
-                        <!--詳細の機能-->
-                        <a href="{{ route('content.show',$content->id) }}">
-                            <!--ユーザー名-->
-                            <p class="text-left text-gray-800 dark:text-gray-200">{{$content->user->name}}</p>
-                            <!--タイトル-->
-                            <h3 class="text-left font-bold text-lg text-gray-dark dark:text-gray-200">{{$content->title_content}}</h3>
-                            <!--画像-->
-                            <img src="{{ asset('storage/contents/images/'.$content->image_content)}}"　class="mx-auto" style="height:300px;">
-                            <!--音声ファイル-->
-                            <audio controls src="{{ asset('storage/contents/audios/'.$content->audio)}}"></audio>
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
+<div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto">
+  @foreach ($contents as $content)
+    <div class="border p-4 w-96 border-gray-600 border-1 rounded-lg bg-white">
+      <a href="{{ route('content.show',$content->id) }}">
+        <p class="text-gray-800 ">{{$content->user->name}}</p>
+        <h3 class="font-bold text-lg text-gray-dark ">{{$content->title_content}}</h3>
+        <br>
+        <div class="flex justify-center items-center w-64 h-64 overflow-hidden mx-auto rounded-lg">
+          <img src="{{ asset('storage/contents/images/'.$content->image_content)}}" class="object-cover object-top w-full h-full" alt="image">
+        </div>
+        <br>
+        <audio controls src="{{ asset('storage/contents/audios/'.$content->audio)}}" class="mx-auto"></audio>
+      </a>
+    </div>
+  @endforeach
+</div>

@@ -1,6 +1,5 @@
 
     <head>
-        <link rel="stylesheet" href="/css/style.css" >
         <title>co-animal｜TOP</title>
     </head>
     <body>
@@ -13,9 +12,9 @@
         
         <x-app-layout>
             <div class="py-12">
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white  overflow-hidden shadow-sm sm:rounded-lg">
-                        <img src="{{ asset('images/lp_image02.png') }}" alt="">
+                        <img src="{{ asset('images/lp_image03.png') }}" alt="">
                     </div>
                 </div>
                         
@@ -24,17 +23,23 @@
                     <div class="text-center">
                         <div>
                         <!--新着順-->
-                            <p  class="font-semibold text-gray-600  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">新着順</p>
+                        <br>
+                            <p  class="font-bold  text-lg ">新着順</p>
+                        <br>
                         <!--新着の投稿をアップする-->
                             @include('dashboard.content', ['contents' => $contents])
                         <!--フロントに全部出すデータ-->
-                            <a href="content"  class="font-semibold text-gray-600 hover:text-gray-900 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{ __('もっと見る') }}</a>
+                        <br>
+                        <div class="h-16 flex items-center justify-center">
+                            <a href="content" class="inline-block text-center font-semibold text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-opacity-50 bg-teal-400 text-white rounded-sm py-3 px-6">{{ __('もっと見る') }}</a>
+                        </div>
                             <a href="partner" class="hidden">{{ __('もっと見る') }}</a>
                     </div>
                 </div>
                 
                 <div>
                     <div>
+                        <br>
                         <a href="{{ route('service') }}"><img src="{{ asset('images/banner01.png') }}" alt="" class="mx-auto"></a>
                     </div>
                 </div>
