@@ -15,7 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $contents = Content::all();
+        $contents = Content::orderBy('updated_at', 'desc')->take(3)->get();
         //dd($contents);→OK!
         return view('dashboard',compact('contents'));
         
