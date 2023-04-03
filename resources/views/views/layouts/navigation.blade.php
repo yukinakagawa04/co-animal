@@ -35,7 +35,8 @@
             {{ __('パートナーアカウント作成') }}
           </x-nav-link>
         </div>
-
+        
+      
       </div>
 
       <!-- Settings Dropdown -->
